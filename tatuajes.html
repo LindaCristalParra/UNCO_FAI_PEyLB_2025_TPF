@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Artista - Tatuajes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+    <!-- Encabezado -->
+    <div id="header">
+        <div id="logo">
+            <img src="images/logo.png" alt="Logo Artista" width="100">
+            <h1>Josefina Lupiañez</h1>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienSoy.html">Quién soy</a></li>
+                <li><a href="obras.html">Obras</a></li>
+                <li>
+                    <a href="tatuajes.html">Tatuajes</a>
+                    <ul>
+                        <li><a href="tatuajes.html#handpoke">Handpoke</a></li>
+                        <li><a href="tatuajes.html#maquina">Máquina</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="#reservar" onclick="mostrarFormularioTurno()">Reservar turno</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="main-content">
+        <h2>Tatuajes</h2>
+        
+        <!-- Sección Handpoke -->
+        <div id="handpoke" class="gallery-section">
+            <h3>Handpoke</h3>
+            <div class="gallery">
+                <img src="images/handpoke1.jpg" alt="Handpoke 1" onclick="ampliarImagen(this)">
+                <img src="images/handpoke2.jpg" alt="Handpoke 2" onclick="ampliarImagen(this)">
+                <img src="images/handpoke3.jpg" alt="Handpoke 3" onclick="ampliarImagen(this)">
+            </div>
+        </div>
+        
+        <!-- Sección Máquina -->
+        <div id="maquina" class="gallery-section">
+            <h3>Máquina</h3>
+            <div class="gallery">
+                <img src="images/maquina1.jpg" alt="Máquina 1" onclick="ampliarImagen(this)">
+                <img src="images/maquina2.jpg" alt="Máquina 2" onclick="ampliarImagen(this)">
+                <img src="images/maquina3.jpg" alt="Máquina 3" onclick="ampliarImagen(this)">
+            </div>
+        </div>
+        
+        <!-- Cotizador de tatuajes -->
+        <div class="cotizador">
+            <h3>Cotizador de tatuajes</h3>
+            <form>
+                <label for="tamaño">Tamaño:</label>
+                <select id="tamaño" onchange="calcularCosto()">
+                    <option value="pequeño">Pequeño (hasta 5cm)</option>
+                    <option value="mediano">Mediano (5-15cm)</option>
+                    <option value="grande">Grande (más de 15cm)</option>
+                </select>
+                
+                <label for="complejidad">Complejidad:</label>
+                <select id="complejidad" onchange="calcularCosto()">
+                    <option value="simple">Simple (líneas básicas)</option>
+                    <option value="moderado">Moderado (sombreado básico)</option>
+                    <option value="complejo">Complejo (detallado, realismo)</option>
+                </select>
+                
+                <p>Costo estimado: <span id="costo">$0.00</span></p>
+                <small>Este es un estimado. El precio final puede variar según el diseño específico.</small>
+            </form>
+        </div>
+        
+        <!-- Formulario para diseños personalizados -->
+        <div class="diseño-personalizado">
+            <h3>Diseño personalizado</h3>
+            <form name="diseñoForm" onsubmit="enviarDiseño(); return false;">
+                <label for="nombre-diseño">Nombre:</label>
+                <input type="text" id="nombre-diseño" name="nombre-diseño" required>
+                
+                <label for="email-diseño">Email:</label>
+                <input type="email" id="email-diseño" name="email-diseño" required>
+                
+                <label for="descripcion-diseño">Describe tu idea:</label>
+                <textarea id="descripcion-diseño" name="descripcion-diseño" required></textarea>
+                
+                <label for="imagen-referencia">Imagen de referencia (opcional):</label>
+                <input type="file" id="imagen-referencia" name="imagen-referencia" accept="image/*">
+                
+                <button type="submit">Enviar solicitud</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Pie de página -->
+    <div id="footer">
+        <div class="footer-section">
+            <h4>Categorías</h4>
+            <ul>
+                <li><a href="obras.html">Obras</a></li>
+                <li><a href="tatuajes.html">Tatuajes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Redes sociales</h4>
+            <a href="#"><img src="images/instagram.png" alt="Instagram" width="30"></a>
+            <a href="#"><img src="images/facebook.png" alt="Facebook" width="30"></a>
+            <a href="#"><img src="images/twitter.png" alt="Twitter" width="30"></a>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Preguntas frecuentes</h4>
+            <ul>
+                <li><a href="#faq1">¿Cómo reservo un turno?</a></li>
+                <li><a href="#faq2">¿Cuánto cuesta un tatuaje?</a></li>
+                <li><a href="#faq3">¿Aceptan encargos?</a></li>
+            </ul>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Josefina Lupiañez. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

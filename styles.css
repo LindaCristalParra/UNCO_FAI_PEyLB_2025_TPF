@@ -1,0 +1,381 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+#header {
+    background-color: #f8f8f8;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    margin-right: 15px;
+}
+
+#nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#nav ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+#nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+}
+
+#nav ul li:hover ul {
+    display: block;
+}
+
+#main-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-section {
+    margin-bottom: 40px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.gallery img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.ver-mas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#formulario-turno {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: 80%;
+    max-width: 500px;
+}
+
+#formulario-turno form {
+    display: grid;
+    gap: 10px;
+}
+
+#footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+/* Estilos para Quién soy */
+.bio-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.bio-image img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.bio-text h3 {
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.exposiciones {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.trayectoria {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 150px;
+}
+
+.number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+.label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Estilos para Contacto */
+.contacto-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.info-contacto, .formulario-contacto {
+    flex: 1;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.mapa {
+    margin-top: 15px;
+}
+
+.mapa img {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.preguntas-frecuentes {
+    margin-top: 40px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.faq-item h4 {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    padding-top: 10px;
+}
+
+.toggle-icon {
+    font-size: 1.2em;
+}
+
+/* Estilos para Obras */
+.filtros {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.filtro-btn {
+    padding: 8px 15px;
+    background-color: #eee;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.filtro-btn.active {
+    background-color: #333;
+    color: white;
+}
+
+.galeria-obras {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.obra-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.obra-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.obra-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.obra-info {
+    padding: 15px;
+}
+
+.obra-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+
+.obra-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.precio {
+    font-weight: bold;
+    color: #333 !important;
+}
+
+.vendido, .exposicion {
+    font-weight: bold;
+    color: #990000 !important;
+}
+
+.btn-consulta {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-consulta:hover {
+    background-color: #555;
+}
+
+.info-ventas {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
