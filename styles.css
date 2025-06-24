@@ -89,23 +89,6 @@ body {
     font-weight: bold;
 }
 
-#formulario-turno {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    z-index: 1000;
-    width: 80%;
-    max-width: 500px;
-}
-
-#formulario-turno form {
-    display: grid;
-    gap: 10px;
-}
 
 #footer {
     background-color: #333;
@@ -156,7 +139,7 @@ body {
 
 .bio-image img {
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bio-text h3 {
@@ -208,7 +191,8 @@ body {
     margin-bottom: 40px;
 }
 
-.info-contacto, .formulario-contacto {
+.info-contacto,
+.formulario-contacto {
     flex: 1;
 }
 
@@ -238,7 +222,9 @@ form label {
     margin-bottom: 5px;
 }
 
-form input, form select, form textarea {
+form input,
+form select,
+form textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
@@ -323,7 +309,7 @@ form button:hover {
 
 .obra-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .obra-item img {
@@ -353,7 +339,8 @@ form button:hover {
     color: #333 !important;
 }
 
-.vendido, .exposicion {
+.vendido,
+.exposicion {
     font-weight: bold;
     color: #990000 !important;
 }
@@ -378,4 +365,49 @@ form button:hover {
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
+}
+
+/* Estilos específicos para la página de turnos */
+.formulario-turno {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-turno label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+.formulario-turno input,
+.formulario-turno select,
+.formulario-turno textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.formulario-turno textarea {
+    height: 100px;
+}
+
+.botones-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.botones-form button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.campo-error {
+    border: 2px solid #ff0000 !important;
+    background-color: #ffeeee;
 }

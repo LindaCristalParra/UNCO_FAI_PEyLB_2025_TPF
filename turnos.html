@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Artista - Reserva de Turnos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+    <!-- Encabezado (igual que index.html) -->
+    <div id="header">
+        <div id="logo">
+            <img src="images/logo.png" alt="Logo Artista" width="100">
+            <h1>Nombre de la Artista</h1>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quien-soy.html">Quién soy</a></li>
+                <li><a href="obras.html">Obras</a></li>
+                <li>
+                    <a href="tatuajes.html">Tatuajes</a>
+                    <ul>
+                        <li><a href="tatuajes.html#handpoke">Handpoke</a></li>
+                        <li><a href="tatuajes.html#maquina">Máquina</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="turnos.html">Reservar turno</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="main-content">
+        <h2>Reserva de Turnos</h2>
+        
+        <div class="instrucciones">
+            <p>Complete el formulario para reservar su turno. Los campos marcados con (*) son obligatorios.</p>
+            <p>Recibirá una confirmación por correo electrónico una vez procesada su solicitud.</p>
+        </div>
+        
+        <div class="formulario-turno">
+            <form name="turnoForm" onsubmit="guardarTurno(); return false;">
+                <label for="nombre">Nombre completo (*):</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Email (*):</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="telefono">Teléfono (*):</label>
+                <input type="tel" id="telefono" name="telefono" required>
+                
+                <label for="fecha">Fecha deseada (*):</label>
+                <input type="date" id="fecha" name="fecha" required>
+                
+                <label for="hora">Hora deseada (*):</label>
+                <input type="time" id="hora" name="hora" required>
+                
+                <label for="tipo">Tipo de trabajo (*):</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="">Seleccione...</option>
+                    <option value="tatuaje">Tatuaje</option>
+                    <option value="diseño">Diseño personalizado</option>
+                    <option value="consulta">Consulta</option>
+                </select>
+                
+                <label for="descripcion">Descripción del trabajo (*):</label>
+                <textarea id="descripcion" name="descripcion" required></textarea>
+                
+                <div class="botones-form">
+                    <button type="submit">Reservar turno</button>
+                    <button type="reset">Limpiar formulario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pie de página (igual que index.html) -->
+    <div id="footer">
+        <!-- ... (footer actual se mantiene igual) ... -->
+    </div>
+</body>
+</html>
