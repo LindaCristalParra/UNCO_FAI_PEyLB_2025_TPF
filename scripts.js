@@ -1,4 +1,3 @@
-
 // Función para ampliar imágenes
 function ampliarImagen(img) {
     var modal = document.createElement('div');
@@ -28,52 +27,51 @@ function ampliarImagen(img) {
 
 // Función para guardar turnos en archivo de texto
 function guardarTurno() {
-    var nombre = document.forms["turnoForm"]["nombre"].value;
-    var email = document.forms["turnoForm"]["email"].value;
-    var telefono = document.forms["turnoForm"]["telefono"].value;
-    var fecha = document.forms["turnoForm"]["fecha"].value;
-    var hora = document.forms["turnoForm"]["hora"].value;
-    var tipo = document.forms["turnoForm"]["tipo"].value;
-    var descripcion = document.forms["turnoForm"]["descripcion"].value;
-    
-    // Validación básica
-    if (!nombre || !email || !telefono || !fecha || !hora) {
-        alert("Por favor complete todos los campos obligatorios.");
-        return false;
-    }
-    
-    // Validar que el teléfono solo contenga números
-    if (!/^\d+$/.test(telefono)) {
-        alert("El teléfono solo debe contener números.");
-        document.forms["turnoForm"]["telefono"].classList.add('campo-error');
-        return false;
-    }
-    
-    // Crear objeto con los datos del turno
-    var turno = {
-        nombre: nombre,
-        email: email,
-        telefono: telefono,
-        fecha: fecha,
-        hora: hora,
-        tipo: tipo,
-        descripcion: descripcion,
-        fechaReserva: new Date().toISOString()
-    };
-    
     try {
-        // Guardar en LocalStorage usando dataHandler.js
-        if (guardarDatos('turnos', turno)) {
-            alert("Turno reservado con éxito. Te contactaremos para confirmar.");
-            document.forms["turnoForm"].reset();
-        } else {
-            alert("Ocurrió un error al guardar el turno. Por favor intente nuevamente.");
+        const form = document.forms["turnoForm"];
+        const turno = {
+            nombre: form.nombre.value.trim(),
+            email: form.email.value.trim(),
+            telefono: form.telefono.value.trim(),
+            fecha: form.fecha.value,
+            hora: form.hora.value,
+            tipo: form.tipo.value,
+            descripcion: form.descripcion.value.trim(),
+            fechaReserva: new Date().toISOString()
+        };
+
+        // Validaciones
+        if (!turno.nombre || !turno.email || !turno.telefono || 
+            !turno.fecha || !turno.hora || !turno.tipo || !turno.descripcion) {
+            alert("Todos los campos son obligatorios");
+            return false;
         }
-    } catch(e) {
-        console.error("Error:", e);
-        alert("Ocurrió un error al guardar el turno. Por favor intente nuevamente.");
+
+        if (!/^\d+$/.test(turno.telefono)) {
+            alert("El teléfono solo debe contener números");
+            return false;
+        }
+
+        if (!/^\S+@\S+\.\S+$/.test(turno.email)) {
+            alert("Ingrese un email válido");
+            return false;
+        }
+
+        // Guardar en LocalStorage
+        const turnos = JSON.parse(localStorage.getItem('turnos') || '[]');
+        turnos.push(turno);
+        localStorage.setItem('turnos', JSON.stringify(turnos));
+
+        alert("Turno reservado con éxito");
+        form.reset();
+        return true;
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error al guardar el turno");
+        return false;
     }
 }
+
 
 function errorHandler(e) {
     console.error("Error: ", e);
