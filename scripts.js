@@ -11,16 +11,16 @@ function ampliarImagen(img) {
     modal.style.alignItems = 'center';
     modal.style.justifyContent = 'center';
     modal.style.zIndex = '1000';
-    modal.onclick = function() {
+    modal.onclick = function () {
         document.body.removeChild(modal);
     };
-    
+
     var imagenAmpliada = document.createElement('img');
     imagenAmpliada.src = img.src;
     imagenAmpliada.alt = img.alt;
     imagenAmpliada.style.maxWidth = '90%';
     imagenAmpliada.style.maxHeight = '90%';
-    
+
     modal.appendChild(imagenAmpliada);
     document.body.appendChild(modal);
 }
@@ -41,7 +41,7 @@ function guardarTurno() {
         };
 
         // Validaciones
-        if (!turno.nombre || !turno.email || !turno.telefono || 
+        if (!turno.nombre || !turno.email || !turno.telefono ||
             !turno.fecha || !turno.hora || !turno.tipo || !turno.descripcion) {
             alert("Todos los campos son obligatorios");
             return false;
@@ -66,12 +66,10 @@ function guardarTurno() {
         form.reset();
         return true;
     } catch (error) {
-        console.error("Error:", error);
-        alert("Error al guardar el turno");
+        errorHandler(error);
         return false;
     }
 }
-
 
 function errorHandler(e) {
     console.error("Error: ", e);
@@ -83,21 +81,21 @@ function calcularCosto() {
     var tamaño = document.getElementById('tamaño').value;
     var complejidad = document.getElementById('complejidad').value;
     var costoBase = 0;
-    
+
     // Definir costo base según tamaño
-    switch(tamaño) {
+    switch (tamaño) {
         case 'pequeño': costoBase = 1000; break;
         case 'mediano': costoBase = 2500; break;
         case 'grande': costoBase = 5000; break;
     }
-    
+
     // Aplicar multiplicador de complejidad
-    switch(complejidad) {
+    switch (complejidad) {
         case 'simple': costoBase *= 15; break;
         case 'moderado': costoBase *= 15.5; break;
         case 'complejo': costoBase *= 25.5; break;
     }
-    
+
     document.getElementById('costo').textContent = "$" + costoBase.toFixed(2);
 }
 
@@ -105,7 +103,7 @@ function calcularCosto() {
 function alternarPreguntaFrecuente(elemento) {
     var respuesta = elemento.nextElementSibling;
     var icono = elemento.querySelector('.toggle-icon');
-    
+
     if (respuesta.style.display === 'none' || !respuesta.style.display) {
         respuesta.style.display = 'block';
         icono.textContent = '-';
@@ -122,20 +120,20 @@ function enviarContacto() {
     var telefono = document.forms["contactoForm"]["telefono"].value;
     var asunto = document.forms["contactoForm"]["asunto"].value;
     var mensaje = document.forms["contactoForm"]["mensaje"].value;
-    
+
     // Validación básica
     if (!nombre || !email || !asunto || !mensaje) {
         alert("Por favor complete todos los campos obligatorios.");
         return false;
     }
-    
+
     // Validar que el teléfono solo contenga números si se proporciona
     if (telefono && !/^\d+$/.test(telefono)) {
         alert("El teléfono solo debe contener números.");
         document.forms["contactoForm"]["telefono"].classList.add('campo-error');
         return false;
     }
-    
+
     // Crear objeto con los datos de contacto
     var contacto = {
         nombre: nombre,
@@ -145,18 +143,20 @@ function enviarContacto() {
         mensaje: mensaje,
         fecha: new Date().toISOString()
     };
-    
+
     try {
-        // Guardar en LocalStorage usando dataHandler.js
-        if (guardarDatos('contactos', contacto)) {
-            alert("Gracias " + nombre + " por tu mensaje. Te responderé a la brevedad.");
-            document.forms["contactoForm"].reset();
-        } else {
-            alert("Ocurrió un error al enviar el mensaje. Por favor intente nuevamente.");
-        }
-    } catch(e) {
+        // Guardar en LocalStorage directamente
+        const contactos = JSON.parse(localStorage.getItem('contactos')) || [];
+        contactos.push(contacto);
+        localStorage.setItem('contactos', JSON.stringify(contactos));
+
+        alert("Gracias " + nombre + " por tu mensaje. Te responderé a la brevedad.");
+        document.forms["contactoForm"].reset();
+        return true;
+    } catch (e) {
         console.error("Error:", e);
         alert("Ocurrió un error al enviar el mensaje. Por favor intente nuevamente.");
+        return false;
     }
 }
 
