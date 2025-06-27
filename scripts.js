@@ -93,9 +93,9 @@ function calcularCosto() {
     
     // Aplicar multiplicador de complejidad
     switch(complejidad) {
-        case 'simple': costoBase *= 1; break;
-        case 'moderado': costoBase *= 1.5; break;
-        case 'complejo': costoBase *= 2.5; break;
+        case 'simple': costoBase *= 15; break;
+        case 'moderado': costoBase *= 15.5; break;
+        case 'complejo': costoBase *= 25.5; break;
     }
     
     document.getElementById('costo').textContent = "$" + costoBase.toFixed(2);
