@@ -1,6 +1,4 @@
-cambiar background
-agregar foto artista
-editar quienSoy con info real
-agregar ubicación de maps
 local storage para reserva de turnos y para contacto
 centrar al medio
+validacion solo numeros en telefono de contacto
+
