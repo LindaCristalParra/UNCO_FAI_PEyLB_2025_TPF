@@ -6,7 +6,7 @@ function guardarDatos(tipo, datos) {
         // Obtener datos existentes
         const datosExistentes = JSON.parse(localStorage.getItem(tipo)) || [];
         
-        // Agregar nuevos datos
+        // Agregar nuevos datos con timestamp
         datosExistentes.push({
             ...datos,
             fechaRegistro: new Date().toISOString()
@@ -15,7 +15,7 @@ function guardarDatos(tipo, datos) {
         // Guardar en LocalStorage
         localStorage.setItem(tipo, JSON.stringify(datosExistentes));
         
-        // Descargar copia de respaldo
+        // Descargar copia de respaldo (opcional, para el administrador)
         descargarBackup(tipo, datosExistentes);
         
         return true;
@@ -27,20 +27,24 @@ function guardarDatos(tipo, datos) {
 
 // Función para descargar backup JSON
 function descargarBackup(tipo, datos) {
-    const blob = new Blob([JSON.stringify(datos, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    
-    a.href = url;
-    a.download = `backup_${tipo}_${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(a);
-    a.click();
-    
-    // Limpieza
-    setTimeout(() => {
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-    }, 100);
+    try {
+        const blob = new Blob([JSON.stringify(datos, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        
+        a.href = url;
+        a.download = `backup_${tipo}_${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        
+        // Limpieza
+        setTimeout(() => {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 100);
+    } catch (error) {
+        console.error("Error al generar backup:", error);
+    }
 }
 
 // Función para validar campos
@@ -60,6 +64,12 @@ function validarCampos(campos) {
             // Validación adicional para email
             if (campo.type === 'email' && valor && !/^\S+@\S+\.\S+$/.test(valor)) {
                 errores.push(`El email no es válido`);
+                elemento.classList.add('campo-error');
+            }
+            
+            // Validación adicional para teléfono (solo números)
+            if (campo.type === 'tel' && valor && !/^\d+$/.test(valor)) {
+                errores.push(`El teléfono solo debe contener números`);
                 elemento.classList.add('campo-error');
             }
         }

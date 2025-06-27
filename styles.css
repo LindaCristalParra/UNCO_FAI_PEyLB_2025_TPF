@@ -347,9 +347,18 @@ form button:hover {
     cursor: pointer;
 }
 
+/* Estilos para mensajes de error */
 .campo-error {
-    border: 2px solid #ff0000 !important;
-    background-color: #ffeeee;
+    border: 2px solid #ff6b6b !important;
+    background-color: #fff0f0;
+}
+
+.mensaje-error {
+    color: #ff6b6b;
+    font-size: 0.8em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 /* Estilos para formularios y validación */
@@ -396,4 +405,14 @@ button {
 
 button:hover {
     background-color: #3a5a8c;
+}
+
+.formulario-turno, 
+.formulario-contacto {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

@@ -1,12 +1,3 @@
-// Función para mostrar el formulario de turnos
-function mostrarFormularioTurno() {
-    document.getElementById('formulario-turno').style.display = 'block';
-}
-
-// Función para ocultar el formulario de turnos
-function ocultarFormularioTurno() {
-    document.getElementById('formulario-turno').style.display = 'none';
-}
 
 // Función para ampliar imágenes
 function ampliarImagen(img) {
@@ -39,14 +30,22 @@ function ampliarImagen(img) {
 function guardarTurno() {
     var nombre = document.forms["turnoForm"]["nombre"].value;
     var email = document.forms["turnoForm"]["email"].value;
+    var telefono = document.forms["turnoForm"]["telefono"].value;
     var fecha = document.forms["turnoForm"]["fecha"].value;
     var hora = document.forms["turnoForm"]["hora"].value;
     var tipo = document.forms["turnoForm"]["tipo"].value;
     var descripcion = document.forms["turnoForm"]["descripcion"].value;
     
     // Validación básica
-    if (!nombre || !email || !fecha || !hora) {
+    if (!nombre || !email || !telefono || !fecha || !hora) {
         alert("Por favor complete todos los campos obligatorios.");
+        return false;
+    }
+    
+    // Validar que el teléfono solo contenga números
+    if (!/^\d+$/.test(telefono)) {
+        alert("El teléfono solo debe contener números.");
+        document.forms["turnoForm"]["telefono"].classList.add('campo-error');
         return false;
     }
     
@@ -54,6 +53,7 @@ function guardarTurno() {
     var turno = {
         nombre: nombre,
         email: email,
+        telefono: telefono,
         fecha: fecha,
         hora: hora,
         tipo: tipo,
@@ -61,32 +61,17 @@ function guardarTurno() {
         fechaReserva: new Date().toISOString()
     };
     
-    // Convertir a JSON
-    var turnoJSON = JSON.stringify(turno);
-    
-    // Usar el API FileSystem para guardar en un archivo de texto (solo Chrome)
     try {
-        window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
-        
-        window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function(fs) {
-            fs.root.getFile('turnos/reservas.txt', {create: true}, function(fileEntry) {
-                fileEntry.createWriter(function(fileWriter) {
-                    fileWriter.seek(fileWriter.length); // Mover al final del archivo
-                    
-                    var blob = new Blob([turnoJSON + "\n"], {type: 'text/plain'});
-                    fileWriter.write(blob);
-                    
-                    alert("Turno reservado con éxito. Te contactaremos para confirmar.");
-                    ocultarFormularioTurno();
-                    document.forms["turnoForm"].reset();
-                }, errorHandler);
-            }, errorHandler);
-        }, errorHandler);
+        // Guardar en LocalStorage usando dataHandler.js
+        if (guardarDatos('turnos', turno)) {
+            alert("Turno reservado con éxito. Te contactaremos para confirmar.");
+            document.forms["turnoForm"].reset();
+        } else {
+            alert("Ocurrió un error al guardar el turno. Por favor intente nuevamente.");
+        }
     } catch(e) {
-        // Fallback para navegadores que no soportan FileSystem API
-        alert("Turno reservado (simulado). En un entorno real, esto se guardaría en el servidor.");
-        ocultarFormularioTurno();
-        document.forms["turnoForm"].reset();
+        console.error("Error:", e);
+        alert("Ocurrió un error al guardar el turno. Por favor intente nuevamente.");
     }
 }
 
@@ -132,45 +117,48 @@ function toggleFAQ(element) {
     }
 }
 
-// Función para filtrar obras
-function filtrarObras(categoria) {
-    var obras = document.querySelectorAll('.obra-item');
-    var botones = document.querySelectorAll('.filtro-btn');
-    
-    // Actualizar botones activos
-    botones.forEach(function(boton) {
-        if (boton.textContent.toLowerCase().includes(categoria) || 
-            (categoria === 'todas' && boton.textContent === 'Todas')) {
-            boton.classList.add('active');
-        } else {
-            boton.classList.remove('active');
-        }
-    });
-    
-    // Mostrar/ocultar obras
-    obras.forEach(function(obra) {
-        if (categoria === 'todas' || obra.getAttribute('data-categoria').includes(categoria)) {
-            obra.style.display = 'block';
-        } else {
-            obra.style.display = 'none';
-        }
-    });
-}
-
-// Función para consultar por una obra
-function consultarObra(nombreObra) {
-    var nombre = prompt("Por favor ingresa tu nombre para contactarte sobre la obra '" + nombreObra + "':");
-    if (nombre) {
-        alert("Gracias " + nombre + ". Me pondré en contacto contigo pronto para brindarte más información sobre '" + nombreObra + "'.");
-    }
-}
-
 // Función para enviar formulario de contacto
 function enviarContacto() {
     var nombre = document.forms["contactoForm"]["nombre-contacto"].value;
-    if (nombre) {
-        alert("Gracias " + nombre + " por tu mensaje. Te responderé a la brevedad.");
-        document.forms["contactoForm"].reset();
+    var email = document.forms["contactoForm"]["email-contacto"].value;
+    var telefono = document.forms["contactoForm"]["telefono"].value;
+    var asunto = document.forms["contactoForm"]["asunto"].value;
+    var mensaje = document.forms["contactoForm"]["mensaje"].value;
+    
+    // Validación básica
+    if (!nombre || !email || !asunto || !mensaje) {
+        alert("Por favor complete todos los campos obligatorios.");
+        return false;
+    }
+    
+    // Validar que el teléfono solo contenga números si se proporciona
+    if (telefono && !/^\d+$/.test(telefono)) {
+        alert("El teléfono solo debe contener números.");
+        document.forms["contactoForm"]["telefono"].classList.add('campo-error');
+        return false;
+    }
+    
+    // Crear objeto con los datos de contacto
+    var contacto = {
+        nombre: nombre,
+        email: email,
+        telefono: telefono || 'No proporcionado',
+        asunto: asunto,
+        mensaje: mensaje,
+        fecha: new Date().toISOString()
+    };
+    
+    try {
+        // Guardar en LocalStorage usando dataHandler.js
+        if (guardarDatos('contactos', contacto)) {
+            alert("Gracias " + nombre + " por tu mensaje. Te responderé a la brevedad.");
+            document.forms["contactoForm"].reset();
+        } else {
+            alert("Ocurrió un error al enviar el mensaje. Por favor intente nuevamente.");
+        }
+    } catch(e) {
+        console.error("Error:", e);
+        alert("Ocurrió un error al enviar el mensaje. Por favor intente nuevamente.");
     }
 }
 
