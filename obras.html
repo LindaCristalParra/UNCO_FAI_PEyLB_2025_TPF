@@ -4,13 +4,12 @@
     <title>Josefina Lupiañez - Obras</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
     <!-- Encabezado -->
     <div id="header">
         <div id="logo">
-            <img src="images/logo.png" alt="Logo Artista" width="100">
+            <img src="images/logo.png" alt="Logo Josefina Lupiañez" width="100">
             <h1>Josefina Lupiañez</h1>
         </div>
         <div id="nav">
@@ -18,133 +17,62 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="quienSoy.html">Quién soy</a></li>
                 <li><a href="obras.html">Obras</a></li>
-                <li>
-                    <a href="tatuajes.html">Tatuajes</a>
-                    <ul>
-                        <li><a href="tatuajes.html#handpoke">Handpoke</a></li>
-                        <li><a href="tatuajes.html#maquina">Máquina</a></li>
-                    </ul>
-                </li>
+                <li><a href="tatuajes.html">Tatuajes</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="turnos.html">Reservar turno</a></li> 
+                <li><a href="turnos.html">Turnos</a></li>
             </ul>
         </div>
     </div>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal simplificado -->
     <div id="main-content">
         <h2>Mis obras</h2>
         
-        <div class="filtros">
-            <h3>Filtrar por:</h3>
-            <button class="filtro-btn active" onclick="filtrarObras('todas')">Todas</button>
-            <button class="filtro-btn" onclick="filtrarObras('pintura')">Pinturas</button>
-            <button class="filtro-btn" onclick="filtrarObras('dibujo')">Dibujos</button>
-            <button class="filtro-btn" onclick="filtrarObras('digital')">Arte digital</button>
-            <button class="filtro-btn" onclick="filtrarObras('exposicion')">En exposición</button>
-            <button class="filtro-btn" onclick="filtrarObras('venta')">Disponibles</button>
-        </div>
-        
         <div class="galeria-obras">
-            <!-- Pintura 1 -->
-            <div class="obra-item" data-categoria="pintura venta">
-                <img src="images/obra1.jpg" alt="Pintura al óleo - Naturaleza" onclick="ampliarImagen(this)">
-                <div class="obra-info">
-                    <h3>Naturaleza viva</h3>
-                    <p>Óleo sobre lienzo - 60x80 cm</p>
-                    <p class="precio">$15,000</p>
-                    <button class="btn-consulta" onclick="consultarObra('Naturaleza viva')">Consultar</button>
-                </div>
+            <!-- Obra 1 -->
+            <div class="obra">
+                <img src="images/obra1.jpg" alt="Naturaleza viva - Pintura al óleo">
+                <h3>Naturaleza viva</h3>
+                <p>Óleo sobre lienzo - 60x80 cm</p>
+                <p><strong>Precio: $15,000</strong></p>
             </div>
             
-            <!-- Dibujo 1 -->
-            <div class="obra-item" data-categoria="dibujo">
-                <img src="images/dibujo1.jpg" alt="Dibujo a carboncillo - Retrato" onclick="ampliarImagen(this)">
-                <div class="obra-info">
-                    <h3>Mirada profunda</h3>
-                    <p>Carboncillo sobre papel - 40x60 cm</p>
-                    <p class="vendido">Vendido</p>
-                </div>
+            <!-- Obra 2 -->
+            <div class="obra">
+                <img src="images/dibujo1.jpg" alt="Mirada profunda - Dibujo a carboncillo">
+                <h3>Mirada profunda</h3>
+                <p>Carboncillo sobre papel - 40x60 cm</p>
+                <p><strong>Vendido</strong></p>
             </div>
             
-            <!-- Digital 1 -->
-            <div class="obra-item" data-categoria="digital venta">
-                <img src="images/digital1.jpg" alt="Arte digital - Fantasía" onclick="ampliarImagen(this)">
-                <div class="obra-info">
-                    <h3>Mundo onírico</h3>
-                    <p>Impresión giclée - 50x70 cm</p>
-                    <p class="precio">$8,000</p>
-                    <button class="btn-consulta" onclick="consultarObra('Mundo onírico')">Consultar</button>
-                </div>
+            <!-- Obra 3 -->
+            <div class="obra">
+                <img src="images/digital1.jpg" alt="Mundo onírico - Arte digital">
+                <h3>Mundo onírico</h3>
+                <p>Impresión giclée - 50x70 cm</p>
+                <p><strong>Precio: $8,000</strong></p>
             </div>
             
-            <!-- Pintura 2 (en exposición) -->
-            <div class="obra-item" data-categoria="pintura exposicion">
-                <img src="images/obra2.jpg" alt="Pintura acrílica - Abstracto" onclick="ampliarImagen(this)">
-                <div class="obra-info">
-                    <h3>Emociones en rojo</h3>
-                    <p>Acrílico sobre lienzo - 80x100 cm</p>
-                    <p class="exposicion">Actualmente en exposición</p>
-                    <small>Galería XYZ hasta el 30/11/2023</small>
-                </div>
-            </div>
-            
-            <!-- Más obras... -->
-            <div class="obra-item" data-categoria="dibujo venta">
-                <img src="images/dibujo2.jpg" alt="Dibujo a tinta - Arquitectura" onclick="ampliarImagen(this)">
-                <div class="obra-info">
-                    <h3>Ciudad imaginaria</h3>
-                    <p>Tinta sobre papel - 50x70 cm</p>
-                    <p class="precio">$6,500</p>
-                    <button class="btn-consulta" onclick="consultarObra('Ciudad imaginaria')">Consultar</button>
-                </div>
-            </div>
-            
-            <div class="obra-item" data-categoria="digital">
-                <img src="images/digital2.jpg" alt="Arte digital - Surrealismo" onclick="ampliarImagen(this)">
-                <div class="obra-info">
-                    <h3>Realidades paralelas</h3>
-                    <p>Impresión giclée - 60x90 cm</p>
-                    <p class="vendido">Vendido</p>
-                </div>
+            <!-- Obra 4 -->
+            <div class="obra">
+                <img src="images/obra2.jpg" alt="Emociones en rojo - Pintura acrílica">
+                <h3>Emociones en rojo</h3>
+                <p>Acrílico sobre lienzo - 80x100 cm</p>
+                <p><strong>Actualmente en exposición</strong></p>
             </div>
         </div>
         
-        <div class="info-ventas">
-            <h3>Información sobre compras</h3>
-            <p>Todas las obras originales incluyen certificado de autenticidad. Las reproducciones en impresión giclée son ediciones limitadas y numeradas.</p>
-            <p>Para consultar por una obra, haz clic en el botón "Consultar" o contáctame directamente a través del <a href="contacto.html">formulario de contacto</a>.</p>
-            <p>Se aceptan pagos en efectivo, transferencia bancaria y principales tarjetas de crédito.</p>
+        <div class="info-contacto">
+            <h3>¿Interesado en alguna obra?</h3>
+            <p>Contáctame a través del <a href="contacto.html">formulario de contacto</a> para más información.</p>
         </div>
     </div>
 
-<!-- Pie de página -->
+    <!-- Pie de página simplificado -->
     <div id="footer">
-        <div class="footer-section">
-            <h4>Categorías</h4>
-            <ul>
-                <li><a href="obras.html">Obras</a></li>
-                <li><a href="tatuajes.html">Tatuajes</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Redes sociales</h4>
-            <a href="#"><img src="images/instagram.png" alt="Instagram" width="30"></a>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Preguntas frecuentes</h4>
-            <ul>
-                <li><a href="#faq1">¿Cómo reservo un turno?</a></li>
-                <li><a href="#faq2">¿Cuánto cuesta un tatuaje?</a></li>
-                <li><a href="#faq3">¿Aceptan encargos?</a></li>
-            </ul>
-        </div>
-        
         <div class="copyright">
             <p>&copy; 2025 Josefina Lupiañez. Todos los derechos reservados.</p>
+            <p>Sígueme en <a href="#">Instagram</a></p>
         </div>
     </div>
 </body>

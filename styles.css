@@ -4,6 +4,11 @@ body {
     padding: 0;
     color: #333;
     line-height: 1.6;
+    background-image: url('images/fondoEditado.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 #header {
@@ -273,98 +278,22 @@ form button:hover {
 }
 
 /* Estilos para Obras */
-.filtros {
-    margin-bottom: 30px;
+.galeria-obras {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-.filtro-btn {
-    padding: 8px 15px;
-    background-color: #eee;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+.obra {
+    width: 250px;
+    text-align: center;
 }
 
-.filtro-btn.active {
-    background-color: #333;
-    color: white;
-}
-
-.galeria-obras {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.obra-item {
-    border: 1px solid #eee;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.obra-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.obra-item img {
+.obra img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    cursor: pointer;
-}
-
-.obra-info {
-    padding: 15px;
-}
-
-.obra-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-}
-
-.obra-info p {
-    margin: 5px 0;
-    font-size: 0.9em;
-    color: #666;
-}
-
-.precio {
-    font-weight: bold;
-    color: #333 !important;
-}
-
-.vendido,
-.exposicion {
-    font-weight: bold;
-    color: #990000 !important;
-}
-
-.btn-consulta {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.btn-consulta:hover {
-    background-color: #555;
-}
-
-.info-ventas {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
 }
 
 /* Estilos específicos para la página de turnos */
@@ -410,4 +339,50 @@ form button:hover {
 .campo-error {
     border: 2px solid #ff0000 !important;
     background-color: #ffeeee;
+}
+
+/* Estilos para formularios y validación */
+.formulario-turno,
+.formulario-contacto {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.campo-error {
+    border: 2px solid #ff6b6b !important;
+    background-color: #fff0f0;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4a6fa5;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #3a5a8c;
 }

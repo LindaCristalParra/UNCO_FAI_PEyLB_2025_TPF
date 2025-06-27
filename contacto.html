@@ -1,11 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
     <title>Josefina Lupiañez - Contacto</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript" src="scripts.js"></script>
 </head>
+
 <body>
     <!-- Encabezado -->
     <div id="header">
@@ -26,7 +28,7 @@
                     </ul>
                 </li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="turnos.html">Reservar turno</a></li> 
+                <li><a href="turnos.html">Reservar turno</a></li>
             </ul>
         </div>
     </div>
@@ -34,7 +36,7 @@
     <!-- Contenido principal -->
     <div id="main-content">
         <h2>Contacto</h2>
-        
+
         <div class="contacto-container">
             <div class="info-contacto">
                 <h3>Información de contacto</h3>
@@ -42,7 +44,7 @@
                 <p><strong>Horario de atención:</strong> Lunes a Viernes de 10:00 a 18:00</p>
                 <p><strong>Teléfono:</strong> +123 456 7890</p>
                 <p><strong>Email:</strong> info@artista.com</p>
-                
+
                 <h3>Redes sociales</h3>
                 <div class="social-icons">
                     <a href="#"><img src="images/instagram.png" alt="Instagram" width="40"></a>
@@ -50,7 +52,7 @@
                     <a href="#"><img src="images/twitter.png" alt="Twitter" width="40"></a>
                     <a href="#"><img src="images/behance.png" alt="Behance" width="40"></a>
                 </div>
-                
+
                 <h3>Ubicación</h3>
                 <div class="mapa">
                     <!-- Imagen de mapa estático como placeholder -->
@@ -58,19 +60,19 @@
                     <small><a href="#" target="_blank">Ver en Google Maps</a></small>
                 </div>
             </div>
-            
+
             <div class="formulario-contacto">
                 <h3>Envíame un mensaje</h3>
                 <form name="contactoForm" onsubmit="enviarContacto(); return false;">
                     <label for="nombre-contacto">Nombre:</label>
                     <input type="text" id="nombre-contacto" name="nombre-contacto" required>
-                    
+
                     <label for="email-contacto">Email:</label>
                     <input type="email" id="email-contacto" name="email-contacto" required>
-                    
+
                     <label for="telefono">Teléfono (opcional):</label>
                     <input type="tel" id="telefono" name="telefono">
-                    
+
                     <label for="asunto">Asunto:</label>
                     <select id="asunto" name="asunto">
                         <option value="consulta">Consulta general</option>
@@ -79,41 +81,47 @@
                         <option value="colaboracion">Propuesta de colaboración</option>
                         <option value="otro">Otro</option>
                     </select>
-                    
+
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                    
+
                     <button type="submit">Enviar mensaje</button>
                 </form>
             </div>
         </div>
-        
+
         <div class="preguntas-frecuentes">
             <h3>Preguntas frecuentes</h3>
             <div class="faq-item">
-                <h4 onclick="toggleFAQ(this)">¿Cómo reservo un turno para tatuaje? <span class="toggle-icon">+</span></h4>
+                <h4 onclick="toggleFAQ(this)">¿Cómo reservo un turno para tatuaje? <span class="toggle-icon">+</span>
+                </h4>
                 <div class="faq-answer" style="display:none;">
-                    <p>Puedes reservar un turno directamente desde la sección "Reservar turno" en el menú principal o contactándome por WhatsApp al +123 456 7890. Se requiere un depósito para confirmar la cita.</p>
+                    <p>Puedes reservar un turno directamente desde la sección "Reservar turno" en el menú principal o
+                        contactándome por WhatsApp al +123 456 7890. Se requiere un depósito para confirmar la cita.</p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <h4 onclick="toggleFAQ(this)">¿Cuánto cuesta un tatuaje? <span class="toggle-icon">+</span></h4>
                 <div class="faq-answer" style="display:none;">
-                    <p>El precio varía según tamaño, complejidad y ubicación en el cuerpo. Puedes usar nuestro <a href="tatuajes.html">cotizador online</a> para tener una estimación o enviarme tu idea para darte un presupuesto exacto.</p>
+                    <p>El precio varía según tamaño, complejidad y ubicación en el cuerpo. Puedes usar nuestro <a
+                            href="tatuajes.html">cotizador online</a> para tener una estimación o enviarme tu idea para
+                        darte un presupuesto exacto.</p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <h4 onclick="toggleFAQ(this)">¿Realizan tatuajes personalizados? <span class="toggle-icon">+</span></h4>
                 <div class="faq-answer" style="display:none;">
-                    <p>Sí, me especializo en diseños personalizados. Puedes enviarme tu idea a través del <a href="tatuajes.html">formulario de diseños personalizados</a> y trabajaremos juntos para crear un diseño único para ti.</p>
+                    <p>Sí, me especializo en diseños personalizados. Puedes enviarme tu idea a través del <a
+                            href="tatuajes.html">formulario de diseños personalizados</a> y trabajaremos juntos para
+                        crear un diseño único para ti.</p>
                 </div>
             </div>
         </div>
     </div>
 
-<!-- Pie de página -->
+    <!-- Pie de página -->
     <div id="footer">
         <div class="footer-section">
             <h4>Categorías</h4>
@@ -123,12 +131,12 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
-        
+
         <div class="footer-section">
             <h4>Redes sociales</h4>
             <a href="#"><img src="images/instagram.png" alt="Instagram" width="30"></a>
         </div>
-        
+
         <div class="footer-section">
             <h4>Preguntas frecuentes</h4>
             <ul>
@@ -137,10 +145,46 @@
                 <li><a href="#faq3">¿Aceptan encargos?</a></li>
             </ul>
         </div>
-        
+
         <div class="copyright">
             <p>&copy; 2025 Josefina Lupiañez. Todos los derechos reservados.</p>
         </div>
     </div>
+    <script type="module">
+        import { guardarDatos, validarCampos } from './dataHandler.js';
+
+        document.getElementById('contactoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const campos = [
+                { id: 'nombre', label: 'Nombre', required: true },
+                { id: 'email', label: 'Email', required: true, type: 'email' },
+                { id: 'asunto', label: 'Asunto', required: true },
+                { id: 'mensaje', label: 'Mensaje', required: true }
+            ];
+
+            const errores = validarCampos(campos);
+
+            if (errores.length > 0) {
+                alert('Errores:\n' + errores.join('\n'));
+                return;
+            }
+
+            const datosContacto = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                asunto: document.getElementById('asunto').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+
+            if (guardarDatos('contactos', datosContacto)) {
+                alert('Mensaje enviado con éxito');
+                this.reset();
+            } else {
+                alert('Error al enviar el mensaje');
+            }
+        });
+    </script>
 </body>
+
 </html>
