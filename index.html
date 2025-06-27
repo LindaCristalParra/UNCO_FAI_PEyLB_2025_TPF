@@ -56,38 +56,7 @@
                 <a href="tatuajes.html" class="ver-mas">Ver más tatuajes</a>
             </div>
         </div>
-    </div>
-
-    <!-- Formulario de turnos (oculto inicialmente) -->
-    <div id="formulario-turno" style="display:none;">
-        <h3>Reservar turno</h3>
-        <form name="turnoForm" onsubmit="guardarTurno(); return false;">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="fecha">Fecha deseada:</label>
-            <input type="date" id="fecha" name="fecha" required>
-            
-            <label for="hora">Hora deseada:</label>
-            <input type="time" id="hora" name="hora" required>
-            
-            <label for="tipo">Tipo de trabajo:</label>
-            <select id="tipo" name="tipo">
-                <option value="tatuaje">Tatuaje</option>
-                <option value="diseño">Diseño personalizado</option>
-                <option value="consulta">Consulta</option>
-            </select>
-            
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcion"></textarea>
-            
-            <button type="submit">Reservar</button>
-            <button type="button" onclick="ocultarFormularioTurno()">Cancelar</button>
-        </form>
-    </div>
+    </div>    
 
     <!-- Pie de página -->
     <div id="footer">
