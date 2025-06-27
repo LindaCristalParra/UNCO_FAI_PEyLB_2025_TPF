@@ -101,17 +101,17 @@ function calcularCosto() {
     document.getElementById('costo').textContent = "$" + costoBase.toFixed(2);
 }
 
-// Función para el toggle de FAQs
-function toggleFAQ(element) {
-    var answer = element.nextElementSibling;
-    var icon = element.querySelector('.toggle-icon');
+// Función para preguntas frecuentes
+function alternarPreguntaFrecuente(elemento) {
+    var respuesta = elemento.nextElementSibling;
+    var icono = elemento.querySelector('.toggle-icon');
     
-    if (answer.style.display === 'none' || !answer.style.display) {
-        answer.style.display = 'block';
-        icon.textContent = '-';
+    if (respuesta.style.display === 'none' || !respuesta.style.display) {
+        respuesta.style.display = 'block';
+        icono.textContent = '-';
     } else {
-        answer.style.display = 'none';
-        icon.textContent = '+';
+        respuesta.style.display = 'none';
+        icono.textContent = '+';
     }
 }
 
